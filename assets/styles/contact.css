@@ -1,0 +1,73 @@
+h1 {
+	color: var(--primary-4);
+}
+
+section.main form {
+	margin: 2rem 2rem;
+}
+
+section.main form > div {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 2rem;
+}
+
+section.main form input,
+section.main form textarea {
+	padding: .5rem;
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+form .form-item.has-error input,
+form .form-item.has-error textarea {
+	border: 2px solid red;
+}
+
+form .form-item {
+	position: relative;
+}
+
+form .form-item .info {
+	font-size: .75rem;
+}
+
+form .form-item .error {
+	display: none;
+	position: absolute;
+	bottom: -20px;
+	color: red;
+	font-size: .75rem;
+}
+
+form .form-item.has-error .error {
+	display: block;
+}
+
+form button {
+	margin: 0;
+	background: var(--primary-4);
+	border: 2px solid var(--primary-4);
+}
+
+form button:hover {
+	color: var(--primary-4);
+	border: 2px solid var(--primary-4);
+}
+
+form button:disabled {
+	background: var(--gray-200);
+	border: 2px solid var(--gray-200);
+	cursor: not-allowed;
+}
+
+form button:disabled:hover {
+	color: white;
+}
+
+@media only screen and (min-width: 768px) {
+	section.main form {
+		margin: 2rem 0;
+	}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSVIS - About</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/search.css">
+    <link rel="stylesheet" href="assets/styles/post-component.css">
+    <link rel="stylesheet" href="assets/styles/search-results.css">
+
+    <!-- Scripts -->
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/components/post.js" defer></script>
+    <script src="assets/js/header.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+    <script src="assets/js/search-results.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">OSVIS</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <div class="search">
+                <div class="lds-dual-ring"></div>
+                <label for="search" class="hide-element">Search</label>
+                <input type="text" placeholder="Search" id="search">
+            </div>
+        </nav>
+        <svg class="hamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </header>
+    <div id="search-results"></div>
+    <section class="breadcrumbs">
+        <a href="index.html">Home</a> / <span>Search result:</span>
+    </section>
+    <section class="main">
+        <h1>Search results:</h1>
+        <div id="results">
+            <div class="loader"></div>
+        </div>
+    </section>
+</body>
+
+</html>
