@@ -1,46 +1,33 @@
-const prev = document.querySelector("#prev")
+
+const carousel = document.querySelector("#carousel")
+const content = document.querySelector("#content")
 const next = document.querySelector("#next")
+const prev = document.querySelector("#prev")
+const scrollText = document.querySelector("#scrollText")
 
-const maxWidth = 900
-const itemsPerSlide = 4
-let counter = 0
+const gap = 16
+const animationTime = 500
+let width = carousel.offsetWidth
+let moving = false
 
-const moveCarousel = (carousel) => {
-    Array.from(carousel.children).forEach(item => {
-        item.style.transform = `translateX(-${maxWidth * counter}px)`
-    })
+const moveNext = () => {
+    if (moving) return
+    moving = true
+    carousel.scrollBy(width + gap, 0)
+    setTimeout(() => moving = false, animationTime)
 }
 
-const goBack = () => {
-    const carousel = document.querySelector("#posts")
-    const length = getCarouselLength()
-    if (counter !== 0) counter--
-    moveCarousel(carousel)
-    disablePrevButton()
-    disableNextButton(length)
+
+const movePrev = () => {
+    if (moving) return
+    moving = true
+    carousel.scrollBy(-(width + gap), 0)
+    setTimeout(() => moving = false, animationTime)
 }
 
-const goForward = () => {
-    const carousel = document.querySelector("#posts")
-    const length = getCarouselLength()
-    if (counter !== length) counter++
-    moveCarousel(carousel)
-    disablePrevButton()
-    disableNextButton(length)
-}
 
-const getCarouselLength = () => {
-    const carousel = document.querySelector("#posts")
-    const length = Array.from(carousel.children).length / itemsPerSlide
-    return length
-}
-
-const disablePrevButton = () => (counter === 0) ? prev.disabled = true : prev.disabled = false
-
-const disableNextButton = (length) => (counter >= Math.floor(length)) ? next.disabled = true : next.disabled = false
+next.addEventListener("click", moveNext);
+prev.addEventListener("click", movePrev);
 
 
-
-disablePrevButton()
-prev.addEventListener("click", goBack)
-next.addEventListener("click", goForward)
+window.addEventListener("resize", () => (width = carousel.offsetWidth));

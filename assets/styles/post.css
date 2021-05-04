@@ -57,7 +57,7 @@ section.main .content blockquote {
 	color: white;
 	padding: 2rem;
 	position: relative;
-	border-radius: 6px;
+	border-radius: var(--border-radius);
 }
 
 section.main figure {
@@ -101,7 +101,7 @@ section.comments .comment {
 	padding: 1rem;
 	font-size: 16px;
 	line-height: 24px;
-	border-radius: 6px;
+	border-radius: var(--border-radius);
 }
 
 section.comments .comment .user {
@@ -150,7 +150,7 @@ section.comment form input,
 section.comment form textarea {
 	padding: .5rem;
 	border: 1px solid black;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 }
 
 form .form-item.has-error input {

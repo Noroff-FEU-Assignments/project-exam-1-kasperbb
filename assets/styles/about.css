@@ -16,7 +16,7 @@ h2 {
 
 .wrapper img {
 	width: 100%;
-	border-radius: 4px;
+	border-radius: var(--border-radius);
 	margin-bottom: 1rem;
 }
 

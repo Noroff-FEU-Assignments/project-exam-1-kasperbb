@@ -9,6 +9,7 @@
 	--gray-300: hsl(212, 14%, 79%); /* DEFAULT */
 	--gray-400: hsl(212, 14%, 69%);
 	--gray-500: hsl(212, 14%, 59%);
+	--border-radius: 4px;
 }
 
 ::-moz-selection {
@@ -215,7 +216,7 @@ section.main {
 
 .loader {
 	border: 16px solid #f3f3f3;
-	border-top: 16px solid #3498db;
+	border-top: 16px solid var(--primary-3);
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
@@ -225,7 +226,7 @@ section.main {
 .loader-small {
 	display: inline-block;
 	border: 8px solid transparent;
-	border-top: 8px solid #3498db;
+	border-top: 8px solid var(--primary-3);
 	border-radius: 50%;
 	width: 10px;
 	height: 10px;

@@ -1,5 +1,5 @@
 const createPost = (post) => `
-    <div class="post2">
+    <div class="post">
         <img
             src="${post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url}"
             alt="${post._embedded["wp:featuredmedia"][0].alt_text}">
