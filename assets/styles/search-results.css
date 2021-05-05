@@ -8,10 +8,10 @@ h1 {
 }
 
 #results {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	justify-items: center;
+	display: flex;
+	flex-direction: column;
 	gap: 16px;
+	margin-bottom: 2rem;
 }
 
 button {
@@ -41,6 +41,26 @@ button:hover {
 button:hover .loader-double:after {
 	border: 2px solid var(--primary-1);
 	border-color: var(--primary-1) transparent;
+}
+
+.post {
+	width: 100%;
+	color: black;
+	background: white !important;
+	box-shadow: var(--shadow);
+	flex-direction: row;
+}
+
+.post img {
+	width: 200px;
+	height: 100px;
+}
+
+.post .content {
+}
+
+.post .content a {
+	color: black;
 }
 
 @media only screen and (min-width: 768px) {
