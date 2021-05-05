@@ -9,20 +9,27 @@ const gap = 16
 const animationTime = 500
 let width = carousel.offsetWidth
 let moving = false
+let timeout = null
 
 const moveNext = () => {
     if (moving) return
+    
     moving = true
     carousel.scrollBy(width + gap, 0)
-    setTimeout(() => moving = false, animationTime)
+
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => moving = false, animationTime)
 }
 
 
 const movePrev = () => {
     if (moving) return
+
     moving = true
     carousel.scrollBy(-(width + gap), 0)
-    setTimeout(() => moving = false, animationTime)
+
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => moving = false, animationTime)
 }
 
 

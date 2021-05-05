@@ -1,8 +1,9 @@
 const createPost = (post) => `
     <div class="post">
         <img
-            src="${post._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url}"
-            alt="${post._embedded["wp:featuredmedia"][0].alt_text}">
+            src="${post._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}"
+            alt="${post._embedded["wp:featuredmedia"][0].alt_text}"
+        />
         <div class="content">
             <a href="post.html?id=${post.id}">
                 ${post.title.rendered}
@@ -16,7 +17,10 @@ const createPost = (post) => `
 `
 
 const createPostDetails = (post) => `
-    <img src="${post._embedded["wp:featuredmedia"][0].source_url}" />
+    <img
+        src="${post._embedded["wp:featuredmedia"][0].source_url}"
+        alt="${post._embedded["wp:featuredmedia"][0].alt_text}"
+    />
     <h1>${post.title.rendered}</h1>
     <div class="byline">
         <p>${formatDate(post.date)} by ${post._embedded.author[0].name}</p>

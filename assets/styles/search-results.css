@@ -38,7 +38,7 @@ button:hover {
 	margin: 2rem 0;
 }
 
-button:hover .lds-dual-ring:after {
+button:hover .loader-double:after {
 	border: 2px solid var(--primary-1);
 	border-color: var(--primary-1) transparent;
 }

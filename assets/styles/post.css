@@ -1,5 +1,5 @@
 h1 {
-	color: #337799;
+	color: var(--primary-3);
 	margin-top: 1rem;
 }
 
@@ -22,6 +22,8 @@ section.main .content {
 section.main img {
 	max-width: 100%;
 	object-fit: cover;
+	border-radius: var(--border-radius);
+	transition: 200ms ease-in-out;
 }
 
 section.main .content h2 {
@@ -42,7 +44,7 @@ section.main .content ul {
 }
 
 section.main .content a {
-	color: #337799;
+	color: var(--primary-3);
 	text-decoration: none;
 	position: relative;
 	transition: 200ms ease-in-out;
@@ -50,6 +52,10 @@ section.main .content a {
 
 section.main .content a:hover:after {
 	height: 100%;
+}
+
+section.main .content strong {
+	font-weight: bold;
 }
 
 section.main .content blockquote {
@@ -97,7 +103,7 @@ section.comments .comment {
 	margin-bottom: 2rem;
 	border: 1px solid var(--gray-200);
 	background: white;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+	box-shadow: var(--shadow);
 	padding: 1rem;
 	font-size: 16px;
 	line-height: 24px;

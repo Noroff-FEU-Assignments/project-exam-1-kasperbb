@@ -69,16 +69,16 @@ header nav .search input::placeholder {
 	font-size: .75rem;
 }
 
-header nav .search .lds-dual-ring {
+header nav .search .loader-double {
 	display: none;
 	margin-right: 1rem;
 }
 
-header nav .search .lds-dual-ring.active {
+header nav .search .loader-double.active {
 	display: inline-block;
 }
 
-header nav .search .lds-dual-ring:after {
+header nav .search .loader-double:after {
 	content: " ";
 	display: block;
 	width: 10px;
@@ -86,7 +86,7 @@ header nav .search .lds-dual-ring:after {
 	border-radius: 50%;
 	border: 2px solid #000;
 	border-color: #000 transparent;
-	animation: lds-dual-ring 1.2s linear infinite;
+	animation: spin 1.2s linear infinite;
 	margin-left: 1rem;
 }
 

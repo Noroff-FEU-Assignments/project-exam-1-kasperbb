@@ -45,6 +45,21 @@ form .form-item.has-error .error {
 	display: block;
 }
 
+form .form-status-message {
+	color: green;
+	margin-bottom: 2rem;
+	display: none;
+}
+
+form .form-status-message.success {
+	display: block;
+}
+
+form .form-status-message.has-error {
+	display: block;
+	color: red;
+}
+
 form button {
 	margin: 0;
 	background: var(--primary-4);

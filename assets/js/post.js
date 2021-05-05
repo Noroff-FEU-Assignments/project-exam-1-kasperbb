@@ -67,11 +67,16 @@ const addComment = async (e) => {
 
 const fixSrc = () => {
     const images = document.querySelectorAll(".wp-block-image img")
+    const videos = document.querySelectorAll(".wp-block-video video")
     images.forEach((image, i) => {
         const caption = document.querySelectorAll(".wp-block-image figcaption")[i]
-        const src = image.dataset.src
-        image.src = src
+        image.src = image.dataset.src
         image.alt = caption.innerHTML
+    })
+    videos.forEach((video, i) => {
+        const caption = document.querySelectorAll(".wp-block-video figcaption")[i]
+        video.src = video.dataset.src
+        video.alt = caption.innerHTML
     })
 }
 
