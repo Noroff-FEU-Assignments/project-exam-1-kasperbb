@@ -22,7 +22,7 @@ section.main form textarea {
 
 form .form-item.has-error input,
 form .form-item.has-error textarea {
-	border: 2px solid red;
+	border: 2px solid var(--error);
 }
 
 form .form-item {
@@ -37,7 +37,7 @@ form .form-item .error {
 	display: none;
 	position: absolute;
 	bottom: -20px;
-	color: red;
+	color: var(--error);
 	font-size: .75rem;
 }
 
@@ -46,7 +46,7 @@ form .form-item.has-error .error {
 }
 
 form .form-status-message {
-	color: green;
+	color: var(--success);
 	margin-bottom: 2rem;
 	display: none;
 }
@@ -57,7 +57,7 @@ form .form-status-message.success {
 
 form .form-status-message.has-error {
 	display: block;
-	color: red;
+	color: var(--error);
 }
 
 form button {

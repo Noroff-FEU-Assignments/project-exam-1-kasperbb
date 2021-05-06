@@ -33,6 +33,11 @@ section.hero p {
 	line-height: 20px;
 }
 
+section.hero p .attribution {
+	display: block;
+	margin-top: 1rem;
+}
+
 section.posts {
 	margin-top: 2rem;
 	margin-bottom: 5rem;

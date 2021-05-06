@@ -46,14 +46,14 @@
 }
 
 .post:nth-child(1n) {
-	background: #c15f3d;
+	background: var(--primary-1);
 }
 .post:nth-child(2n) {
-	background: #155e39;
+	background: var(--primary-2);
 }
 .post:nth-child(3n) {
-	background: #379;
+	background: var(--primary-3);
 }
 .post:nth-child(4n) {
-	background: #72616e;
+	background: var(--primary-4);
 }

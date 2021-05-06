@@ -160,7 +160,7 @@ section.comment form textarea {
 }
 
 form .form-item.has-error input {
-	border: 2px solid red;
+	border: 2px solid var(--error);
 }
 
 form .form-item {
@@ -175,7 +175,7 @@ form .form-item .error {
 	display: none;
 	position: absolute;
 	bottom: -20px;
-	color: red;
+	color: var(--error);
 	font-size: .75rem;
 }
 
