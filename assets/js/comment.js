@@ -1,17 +1,36 @@
-const form = document.querySelector("form")
-const button = document.querySelector("form button")
+const COMMENTS = 'https://exam-one.bjorno.dev/wp-json/wp/v2/comments'
+
+const button = document.querySelector("section.comment form button")
+const form = document.querySelector("section.comment form")
 const tooltip = document.querySelector(".tooltip")
-const URL = "https://exam-one.bjorno.dev/wp-json/contact-form-7/v1/contact-forms/130/feedback"
+
 let timeout = null
 
-const getFormFields = () => [
-    form["your-name"],
-    form["your-email"],
-    form["your-subject"],
-    form["your-message"],
-]
+const fetchComments = async () => {
+    try {
+        const res = await fetch(COMMENTS)
+        const json = await res.json()
+        const filtered = json.filter(comment => comment.post === +ID)
+        loader.remove()
+        return filtered
+    } catch (err) {
+        console.log(err)
+    }
+}
 
-const required = (target) => (target.value.trim()) ? true : false;
+const populateComments = async () => {
+    const container = document.querySelector("#comments")
+    const comments = await fetchComments()
+    container.innerHTML = ""
+    comments.forEach(comment => container.innerHTML += createComment(comment))
+    if (!comments.length) container.innerHTML = "<p class='no-comments'>No comments</p>"
+}
+
+const getFormFields = () => [
+    form["email"],
+    form["name"],
+    form["message"],
+]
 
 const minLength = (target, length) => (target.value.trim().length >= length) ? true : false
 
@@ -22,11 +41,10 @@ const validEmail = (email) => {
 }
 
 const validForm = (form) => {
-    const [name, email, subject, message] = getFormFields()
+    const [email, name, message] = getFormFields()
     const arr = [
-        minLength(name, 5),
         validEmail(email),
-        minLength(subject, 15),
+        minLength(name, 5),
         minLength(message, 25),
     ]
 
@@ -45,15 +63,13 @@ const removeErrorStyles = (e) => {
 }
 
 const isValid = (formItemName) => {
-    const [name, email, subject, message] = getFormFields()
+    const [email, name, message] = getFormFields()
     const formItem = form[formItemName]
     switch (formItemName) {
-        case name.name:
-            return minLength(formItem, 5)
         case email.name:
             return validEmail(formItem)
-        case subject.name:
-            return minLength(formItem, 15)
+        case name.name:
+            return minLength(formItem, 5)
         case message.name:
             return minLength(formItem, 25)
         default:
@@ -78,38 +94,40 @@ const controlAllValid = () => {
     })
 }
 
-const handleSubmit = async (e) => {
-    const status = document.querySelector(".form-status-message")
-    const body = new FormData(form)
-    
+const addComment = async (e) => {
+    const [email, name, message] = getFormFields()
+    const data = JSON.stringify({
+        post: ID,
+        author_email: email.value,
+        author_name: name.value,
+        content: message.value,
+    });
+
+    const options = {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: data,
+    }
+
     const valid = validForm(form)
     if (!valid) return controlAllValid()
 
-    const res = await fetch(URL, { method: "POST", body })
-    const json = await res.json()
+    const res = await fetch(COMMENTS, options)
+    if (res.ok) return populateComments()
 
-
-    if (json.status === "mail_sent" && valid) {
-        status.classList.add("success")
-        status.innerHTML = "Your message was successfully sent!"
-    } else {
-        status.classList.add("has-error")
-        status.innerHTML = json.message
-    }
-
-    setTimeout(() => {
-        status.classList.remove("success")
-        status.classList.remove("has-error")
-    }, 5000)
-
-    return json
+    const json = res.json()
+    console.log(json)
+    return json;
 }
 
 const showTooltip = () => tooltip.classList.add("show")
 const hideTooltip = () => tooltip.classList.remove("show")
 
+
+populateComments()
+
 form.addEventListener("input", handleValidate)
-button.addEventListener("click", handleSubmit)
 
 button.addEventListener("mouseover", showTooltip)
 button.addEventListener("mouseout", hideTooltip)
+button.addEventListener("click", addComment)
