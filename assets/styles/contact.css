@@ -81,6 +81,32 @@ form button:disabled:hover {
 	color: white;
 }
 
+.button-wrapper {
+	position: relative;
+	width: 200px;
+}
+
+.tooltip {
+	position: absolute;
+	top: -70px;
+	background: var(--primary-1);
+	color: white;
+	padding: 1rem;
+	border-radius: var(--border-radius);
+	font-size: .8rem;
+	line-height: 16px;
+	transform: translateY(-20%);
+	transition: 200ms ease-in-out;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.tooltip.show {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0%);
+}
+
 @media only screen and (min-width: 768px) {
 	section.main form {
 		margin: 2rem 0;
