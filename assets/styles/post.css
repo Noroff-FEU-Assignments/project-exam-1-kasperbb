@@ -183,6 +183,21 @@ form .form-item.has-error .error {
 	display: block;
 }
 
+form .form-status-message {
+	color: var(--success);
+	margin-bottom: 2rem;
+	display: none;
+}
+
+form .form-status-message.success {
+	display: block;
+}
+
+form .form-status-message.has-error {
+	display: block;
+	color: var(--error);
+}
+
 .button-wrapper {
 	position: relative;
 	width: 200px;

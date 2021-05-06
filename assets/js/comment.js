@@ -94,7 +94,37 @@ const controlAllValid = () => {
     })
 }
 
+const successfulComment = () => {
+    const status = document.querySelector(".form-status-message")
+
+    status.innerHTML = "Your comment was successfully added!"
+    status.classList.add("success")
+
+    setTimeout(() => {
+        status.classList.remove("success")
+        status.classList.remove("has-error")
+    }, 5000)
+
+    populateComments()
+}
+
+const failedComment = (json) => {
+    const status = document.querySelector(".form-status-message")
+
+    status.classList.add("has-error")
+    status.innerHTML = json.message
+
+    controlAllValid()
+
+    setTimeout(() => {
+        status.classList.remove("success")
+        status.classList.remove("has-error")
+    }, 5000)
+}
+
 const addComment = async (e) => {
+    const status = document.querySelector(".form-status-message")
+
     const [email, name, message] = getFormFields()
     const data = JSON.stringify({
         post: ID,
@@ -113,10 +143,10 @@ const addComment = async (e) => {
     if (!valid) return controlAllValid()
 
     const res = await fetch(COMMENTS, options)
-    if (res.ok) return populateComments()
+    if (res.ok) return successfulComment()
 
-    const json = res.json()
-    console.log(json)
+    const json = await res.json()
+    failedComment(json)
     return json;
 }
 
