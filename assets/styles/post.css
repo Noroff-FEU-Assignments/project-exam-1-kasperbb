@@ -200,7 +200,7 @@ form .form-status-message.has-error {
 
 .button-wrapper {
 	position: relative;
-	width: 200px;
+	width: 100%;
 }
 
 .tooltip {
@@ -236,5 +236,9 @@ form .form-status-message.has-error {
 
 	form button {
 		margin: 0;
+	}
+
+	.button-wrapper {
+		width: 200px;
 	}
 }

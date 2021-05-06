@@ -83,7 +83,7 @@ form button:disabled:hover {
 
 .button-wrapper {
 	position: relative;
-	width: 200px;
+	width: 100%;
 }
 
 .tooltip {
@@ -110,5 +110,9 @@ form button:disabled:hover {
 @media only screen and (min-width: 768px) {
 	section.main form {
 		margin: 2rem 0;
+	}
+
+	.button-wrapper {
+		width: 200px;
 	}
 }
