@@ -19,22 +19,23 @@ const populatePost = async () => {
     breadcrumbs.innerHTML += `<span>${post.title.rendered}</span>`
 }
 
-const fixSrc = () => {
+const fixSrc = (element, type) => {
+    element.forEach((el, i) => {
+        const caption = document.querySelectorAll(`.wp-block-${type} figcaption`)[i]
+        el.src = el.dataset.src
+        el.alt = caption.innerHTML
+    })
+}
+
+const fixAllSrc = () => {
     const images = document.querySelectorAll(".wp-block-image img")
     const videos = document.querySelectorAll(".wp-block-video video")
-    images.forEach((image, i) => {
-        const caption = document.querySelectorAll(".wp-block-image figcaption")[i]
-        image.src = image.dataset.src
-        image.alt = caption.innerHTML
-    })
-    videos.forEach((video, i) => {
-        const caption = document.querySelectorAll(".wp-block-video figcaption")[i]
-        video.src = video.dataset.src
-        video.alt = caption.innerHTML
-    })
+
+    fixSrc(images, "image")
+    fixSrc(videos, "video")
 }
 
 populatePost().then(() => {
     addEvents()
-    fixSrc()
+    fixAllSrc()
 })
