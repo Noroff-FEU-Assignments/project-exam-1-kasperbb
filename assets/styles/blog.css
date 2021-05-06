@@ -7,6 +7,10 @@ h1 {
 	color: var(--primary-3);
 }
 
+section.main {
+	margin: auto;
+}
+
 section.main .top {
 	display: flex;
 	flex-direction: column;
@@ -50,6 +54,7 @@ button:hover .loader-double:after {
 
 	section.main {
 		align-items: flex-start;
+		margin: auto 3rem;
 	}
 
 	section.main h1 {
@@ -61,6 +66,7 @@ button:hover .loader-double:after {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+		margin: 1rem 0;
 	}
 
 	section.main .top h1 {
@@ -75,5 +81,12 @@ button:hover .loader-double:after {
 
 	button {
 		margin: 2rem 0;
+	}
+}
+
+@media only screen and (min-width: 1164px) {
+	section.main {
+		max-width: 1064px;
+		margin: auto;
 	}
 }

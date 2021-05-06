@@ -30,6 +30,21 @@ h2 {
 }
 
 @media only screen and (min-width: 768px) {
+	section.main h1 {
+		margin: 1rem 0;
+	}
+
+	.wrapper {
+		flex-direction: column;
+	}
+
+	.wrapper img {
+		width: 100%;
+		margin-right: 1rem;
+	}
+}
+
+@media only screen and (min-width: 1164px) {
 	.wrapper {
 		flex-direction: row;
 	}

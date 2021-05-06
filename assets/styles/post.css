@@ -224,7 +224,18 @@ form .form-status-message.has-error {
 	transform: translateY(0%);
 }
 
+.wp-block-video {
+	display: none;
+}
+
 @media only screen and (min-width: 768px) {
+	section.breadcrumbs {
+		margin-bottom: 1rem;
+	}
+	section.main h1 {
+		margin: 1rem 0;
+	}
+
 	section.main .byline {
 		text-align: left;
 	}
@@ -241,4 +252,11 @@ form .form-status-message.has-error {
 	.button-wrapper {
 		width: 200px;
 	}
+
+	.wp-block-video {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 1164px) {
 }

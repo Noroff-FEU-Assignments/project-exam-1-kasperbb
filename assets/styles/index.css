@@ -19,9 +19,13 @@ section.hero {
 }
 
 section.hero .wrapper {
-	max-width: 300px;
-	margin: auto;
-	text-align: center;
+	margin: auto 3rem;
+}
+
+section.hero .wrapper h1 {
+	justify-content: flex-start;
+	text-align: left;
+	margin: 0 0 1rem 0;
 }
 
 section.hero h1 {
@@ -81,6 +85,12 @@ section.posts h2 {
 }
 
 @media only screen and (min-width: 768px) {
+	section {
+		max-width: 516px;
+	}
+}
+
+@media only screen and (min-width: 1164px) {
 	section {
 		max-width: 1064px;
 	}

@@ -82,7 +82,7 @@ const handleValidate = (e) => {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() => (!isValid(name)) && setErrorStyles(e), 1000)
+    timeout = setTimeout(() => (!isValid(name)) && setErrorStyles(e), 800)
 
     if (isValid(name)) removeErrorStyles(e)
 }

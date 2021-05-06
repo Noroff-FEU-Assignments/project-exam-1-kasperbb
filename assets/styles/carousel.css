@@ -67,6 +67,12 @@
 
 @media only screen and (min-width: 768px) {
 	#wrapper {
+		max-width: 516px;
+	}
+}
+
+@media only screen and (min-width: 1164px) {
+	#wrapper {
 		max-width: 1048px;
 	}
 }
