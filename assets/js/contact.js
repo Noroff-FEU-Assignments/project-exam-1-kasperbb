@@ -36,13 +36,11 @@ const validForm = (form) => {
 
 const setErrorStyles = (e) => {
     const parent = e.target ? e.target.parentNode : form[e].parentNode
-    console.log(`parent`, parent)
     parent.classList.add("has-error")
 }
 
 const removeErrorStyles = (e) => {
     const parent = e.target ? e.target.parentNode : form[e].parentNode
-    console.log(`parent`, parent)
     parent.classList.remove("has-error")
 }
 
@@ -83,17 +81,20 @@ const controlAllValid = () => {
 const handleSubmit = async (e) => {
     const status = document.querySelector(".form-status-message")
     const body = new FormData(form)
+    
+    const valid = validForm(form)
+    if (!valid) return controlAllValid()
 
     const res = await fetch(URL, { method: "POST", body })
     const json = await res.json()
 
-    if (json.status === "mail_sent") {
+
+    if (json.status === "mail_sent" && valid) {
         status.classList.add("success")
         status.innerHTML = "Your message was successfully sent!"
     } else {
         status.classList.add("has-error")
         status.innerHTML = json.message
-        controlAllValid()
     }
 
     setTimeout(() => {
