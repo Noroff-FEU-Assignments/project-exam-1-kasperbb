@@ -5,10 +5,22 @@ const ID = params.get("id")
 
 if (!ID) location.href = "/"
 
+const convertUnicodeToChar = (string) => {
+    if (string.includes("&#")) {
+        const first = string.split("&#")[0]
+        const second = string.split("&#")[1].split(";")
+        const char = String.fromCharCode(second[0])
+
+        return first + char + second[1]
+    }
+
+    return string
+}
+
 const fetchPost = async (id) => {
     const res = await fetch(`${POSTS}/${id}?_embed`)
     const json = await res.json()
-    document.title += ` ${json.title.rendered}`
+    document.title += ` ${convertUnicodeToChar(json.title.rendered)}`
     return json
 }
 
