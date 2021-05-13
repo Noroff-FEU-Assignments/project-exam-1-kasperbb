@@ -1,4 +1,4 @@
-const sloader = document.querySelector("header nav .search .loader-double")
+const sloader = document.querySelector("header nav .search .preloader-search")
 const container = document.querySelector("#search-results")
 const input = document.querySelector("nav input")
 const body = document.querySelector("body")

@@ -7,23 +7,23 @@ const tooltip = document.querySelector(".tooltip")
 let timeout = null
 
 const fetchComments = async () => {
-    try {
-        const res = await fetch(COMMENTS)
-        const json = await res.json()
-        const filtered = json.filter(comment => comment.post === +ID)
-        loader.remove()
-        return filtered
-    } catch (err) {
-        console.log(err)
-    }
+    const res = await fetch(COMMENTS)
+    const json = await res.json()
+    const filtered = json.filter(comment => comment.post === +ID)
+    loader.remove()
+    return filtered
 }
 
 const populateComments = async () => {
     const container = document.querySelector("#comments")
-    const comments = await fetchComments()
-    container.innerHTML = ""
-    comments.forEach(comment => container.innerHTML += createComment(comment))
-    if (!comments.length) container.innerHTML = "<p class='no-comments'>No comments</p>"
+    try {
+        const comments = await fetchComments()
+        container.innerHTML = ""
+        comments.forEach(comment => container.innerHTML += createComment(comment))
+        if (!comments.length) container.innerHTML = "<p class='no-comments'>No comments</p>"
+    } catch(err) {
+        container.innerHTML = "<p class='no-comments'>No comments</p>"
+    }
 }
 
 const getFormFields = () => [
@@ -123,8 +123,6 @@ const failedComment = (json) => {
 }
 
 const addComment = async (e) => {
-    const status = document.querySelector(".form-status-message")
-
     const [email, name, message] = getFormFields()
     const data = JSON.stringify({
         post: ID,
@@ -142,12 +140,18 @@ const addComment = async (e) => {
     const valid = validForm(form)
     if (!valid) return controlAllValid()
 
-    const res = await fetch(COMMENTS, options)
-    if (res.ok) return successfulComment()
+    button.innerHTML = "Posting... <div class='preloader-button'></div>"
 
-    const json = await res.json()
-    failedComment(json)
-    return json;
+    try {
+        const res = await fetch(COMMENTS, options)
+        button.innerHTML = "Post"
+        if (res.ok) return successfulComment()
+    } catch(err) {
+        const json = await res.json()
+        failedComment(json)
+        button.innerHTML = "Post"
+        return json;
+    }
 }
 
 const showTooltip = () => tooltip.classList.add("show")

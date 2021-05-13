@@ -50,7 +50,7 @@
             <a href="blog.html">Blog</a>
             <a href="contact.html">Contact</a>
             <div class="search">
-                <div class="loader-double"></div>
+                <div class="preloader-search"></div>
                 <label for="search" class="hide-element">Search</label>
                 <input type="text" placeholder="Search" id="search">
             </div>
@@ -67,15 +67,16 @@
     <section class="main">
         <div class="top">
             <h1>Blog</h1>
+            <label for="filter" class="hide-element">Sort by</label>
             <select name="filter" id="filter">
                 <option value="desc">Newest first</option>
                 <option value="asc">Oldest first</option>
             </select>
         </div>
         <div id="results">
-            <div class="loader"></div>
+            <div class="preloader"></div>
         </div>
-        <button>Load more</button>
+        <button aria-label="Load more">Load more</button>
     </section>
     <footer>
         <div class="content">

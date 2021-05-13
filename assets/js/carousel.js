@@ -11,10 +11,25 @@ let width = carousel.offsetWidth
 let moving = false
 let timeout = null
 
+const handleDisablePrev = () => {
+    const isStart = carousel.scrollLeft - width - gap <= 0
+
+    prev.disabled = isStart
+    next.disabled = false
+}
+
+const handleDisableNext = () => {
+    const isEnd = content.scrollWidth - width - gap <= carousel.scrollLeft + width + gap
+
+    prev.disabled = false
+    next.disabled = isEnd
+}
+
 const moveNext = () => {
     if (moving) return
     
     moving = true
+    handleDisableNext()
     carousel.scrollBy(width + gap, 0)
 
     if (timeout) clearTimeout(timeout)
@@ -26,6 +41,7 @@ const movePrev = () => {
     if (moving) return
 
     moving = true
+    handleDisablePrev()
     carousel.scrollBy(-(width + gap), 0)
 
     if (timeout) clearTimeout(timeout)

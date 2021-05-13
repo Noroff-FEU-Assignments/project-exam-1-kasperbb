@@ -84,25 +84,34 @@ const handleSubmit = async (e) => {
     
     const valid = validForm(form)
     if (!valid) return controlAllValid()
+    
+    button.innerHTML = "Sending... <div class='preloader-button'></div>"
 
-    const res = await fetch(URL, { method: "POST", body })
-    const json = await res.json()
+    try {
+        const res = await fetch(URL, { method: "POST", body })
+        const json = await res.json()
 
+        if (json.status === "mail_sent" && valid) {
+            status.classList.add("success")
+            status.innerHTML = "Your message was successfully sent!"
+        } else {
+            status.classList.add("has-error")
+            status.innerHTML = json.message
+        }
 
-    if (json.status === "mail_sent" && valid) {
-        status.classList.add("success")
-        status.innerHTML = "Your message was successfully sent!"
-    } else {
+        setTimeout(() => {
+            status.classList.remove("success")
+            status.classList.remove("has-error")
+        }, 5000)
+
+        button.innerHTML = "Send"
+
+        return json
+    } catch(err) {
         status.classList.add("has-error")
-        status.innerHTML = json.message
+        status.innerHTML = "Failed to send message. Please try again later."
+        button.innerHTML = "Send"
     }
-
-    setTimeout(() => {
-        status.classList.remove("success")
-        status.classList.remove("has-error")
-    }, 5000)
-
-    return json
 }
 
 const showTooltip = () => tooltip.classList.add("show")

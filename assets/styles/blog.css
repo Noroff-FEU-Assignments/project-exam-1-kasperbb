@@ -32,11 +32,6 @@ section.main .top #filter {
 	margin: 2rem 0;
 }
 
-button:hover .loader-double:after {
-	border: 2px solid var(--primary-3);
-	border-color: var(--primary-3) transparent;
-}
-
 .post {
 	box-shadow: var(--shadow);
 	background: white !important;
@@ -45,6 +40,16 @@ button:hover .loader-double:after {
 
 .post .content a {
 	color: black;
+}
+
+.preloader {
+	border: 4px solid var(--primary-3);
+	border-left-color: transparent;
+}
+
+button:hover .preloader-button {
+	border: 2px solid var(--primary-3);
+	border-left-color: transparent;
 }
 
 @media only screen and (min-width: 768px) {

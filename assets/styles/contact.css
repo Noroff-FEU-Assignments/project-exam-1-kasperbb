@@ -81,6 +81,11 @@ form button:disabled:hover {
 	color: white;
 }
 
+form button:hover .preloader-button {
+	border: 2px solid var(--primary-4);
+	border-left-color: transparent;
+}
+
 .button-wrapper {
 	position: relative;
 	width: 100%;

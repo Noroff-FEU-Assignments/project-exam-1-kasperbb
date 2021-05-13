@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our Small View Into Space is a blog focused news and other interesting topics about space.">
+
     <title>OSVIS - Home</title>
     
     <!-- Font -->
@@ -26,8 +28,8 @@
     <script src="assets/js/components/post.js" defer></script>
     <script src="assets/js/header.js" defer></script>
     <script src="assets/js/search.js" defer></script>
-    <script src="assets/js/index.js" defer></script>
     <script src="assets/js/carousel.js" defer></script>
+    <script src="assets/js/index.js" defer></script>
 
     <!-- Hotjar Tracking Code for https://osvis.netlify.app/ -->
     <script>
@@ -52,7 +54,7 @@
             <a href="blog.html">Blog</a>
             <a href="contact.html">Contact</a>
             <div class="search">
-                <div class="loader-double"></div>
+                <div class="preloader-search"></div>
                 <label for="search" class="hide-element">Search</label>
                 <input type="text" placeholder="Search" id="search">
             </div>
@@ -77,27 +79,25 @@
     <section class="posts">
         <h2>Latest Posts</h2>
         <div id="wrapper">
-            <button id="prev">
+            <button id="prev" disabled>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Right arrow, go next in caoursel</title>
                     <path fill="none" d="M0 0h24v24H0V0z" />
                     <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
                 </svg>
             </button>
             <div id="carousel">
-                <div id="content"></div>
+                <div id="content">
+                    <div class="loader-double big"></div>
+                </div>
             </div>
             <button id="next">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <title>Left arrow, go back in caoursel</title>
                     <path fill="none" d="M0 0h24v24H0V0z" />
                     <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
                 </svg>
             </button>
-            <div id="scrollText">
-                Swipe
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </div>
         </div>
     </section>
     <footer>

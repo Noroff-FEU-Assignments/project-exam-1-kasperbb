@@ -1,5 +1,5 @@
 const breadcrumbs = document.querySelector("section.breadcrumbs")
-const loader = document.querySelector(".loader")
+const loader = document.querySelector(".loader-double.big")
 
 const ID = params.get("id")
 

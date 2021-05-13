@@ -1,6 +1,6 @@
 const query = params.get("q")
 
-const loader = document.querySelector(".loader")
+const loader = document.querySelector("#results .preloader")
 
 if (!query) location.href = "/"
 
@@ -13,9 +13,13 @@ const fetchSearchResults = async () => {
 
 const populateSearchResults = async () => {
     const container = document.querySelector("#results")
-    const results = await fetchSearchResults()
-    populateHeading()
-    results.forEach(post => container.innerHTML += createPost(post))
+    try {
+        const results = await fetchSearchResults()
+        populateHeading()
+        results.forEach(post => container.innerHTML += createPost(post))
+    } catch(err) {
+        container.innerHTML = "Error loading the search results. Try again later."
+    }
 }
 
 const populateHeading = () => {
