@@ -61,6 +61,20 @@ header nav .search {
 	flex: 1;
 }
 
+header nav .search .search__input {
+	position: relative;
+}
+
+header nav .search .search__input svg {
+	display: block;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+
 header nav .search input {
 	padding: .25rem;
 }
