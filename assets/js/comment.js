@@ -10,7 +10,6 @@ const fetchComments = async () => {
     const res = await fetch(COMMENTS)
     const json = await res.json()
     const filtered = json.filter(comment => comment.post === +ID)
-    loader.remove()
     return filtered
 }
 
