@@ -27,6 +27,7 @@ const populateHeading = () => {
     const breadcrumb = document.querySelector("section.breadcrumbs span")
     container.innerHTML += ` ${query}`
     breadcrumb.innerHTML += ` ${query}`
+    document.title += ` ${query}`
 }
 
 populateSearchResults()
