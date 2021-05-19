@@ -2,7 +2,7 @@ const sloader = document.querySelector("header nav .search .preloader-search")
 const container = document.querySelector("#search-results")
 const input = document.querySelector("nav input")
 const body = document.querySelector("body")
-const button = document.querySelector(".search__input svg")
+const searchButton = document.querySelector(".search__input svg")
 let searchTimeout = null
 
 const fetchResults = async (string) => {
@@ -55,5 +55,5 @@ const createResult = (post) => `
 
 input.addEventListener("input", handleSearch)
 input.addEventListener("keydown", handleEnter)
-button.addEventListener("click", handleButton)
+searchButton.addEventListener("click", handleButton)
 body.addEventListener("click", closeSearchOnClick)
